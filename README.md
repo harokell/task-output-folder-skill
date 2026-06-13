@@ -1,6 +1,6 @@
 # Task Output Folder Skill
 
-A Codex skill that creates a per-task output folder under `task-outputs/` whenever Codex generates files and the user has not provided an explicit destination.
+A Codex skill that creates a per-task output folder under `task-outputs/` whenever Codex generates files, scratch artifacts, temporary staging copies, exports, previews, or deliverables and the user has not provided an explicit destination.
 
 The GitHub repository is named `task-output-folder-skill` for clarity. The skill itself is named `task-output-folder`.
 
@@ -18,7 +18,7 @@ Then restart or refresh Codex so the skill can be discovered.
 You can invoke it explicitly with:
 
 ```text
-Use $task-output-folder when this task creates files without an explicit destination.
+Use $task-output-folder whenever this task creates files, scratch artifacts, or staging copies without an explicit destination.
 ```
 
 No build step or external dependency is required.
