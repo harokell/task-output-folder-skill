@@ -1,0 +1,4 @@
+interface:
+  display_name: "Task Output Folder"
+  short_description: "Store generated files under task-outputs"
+  default_prompt: "Use $task-output-folder when this task creates files without an explicit destination."
