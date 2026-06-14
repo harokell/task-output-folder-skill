@@ -23,7 +23,7 @@ Inside `task-outputs/`, create one per-task folder using this naming pattern:
 
 ```text
 task-outputs/
-└── task-output-YYYYMMDD-HHMMSS-short-slug/
+  task-output-YYYYMMDD-HHMMSS-short-slug/
 ```
 
 - Use local time for the timestamp.
@@ -38,7 +38,7 @@ Put these files in the per-task folder when no explicit destination was provided
 
 - User-facing generated deliverables such as reports, decks, images, PDFs, spreadsheets, archives, exports, or converted files.
 - Intermediate files that exist only to support this task, such as scratch scripts, temporary datasets, extracted assets, rendered previews, or validation artifacts.
-- Temporary staging copies for creating or updating Codex skills, plugins, templates, documents, repos, or other artifacts before installing, publishing, or copying them elsewhere.
+- Temporary staging copies for creating or updating agent skills, plugins, templates, documents, repositories, or other artifacts before installing, publishing, or copying them elsewhere.
 - Multiple related deliverables from the same task. Reuse the same per-task folder for the whole task.
 
 Do not move these into the task output folder:
@@ -49,14 +49,14 @@ Do not move these into the task output folder:
 
 ## Existing Projects
 
-When working in an existing codebase, keep normal implementation changes in their natural project paths. Use `task-outputs/<per-task-folder>/` only for extra artifacts that Codex creates for the user or for task-local scratch material.
+When working in an existing codebase, keep normal implementation changes in their natural project paths. Use `task-outputs/<per-task-folder>/` only for extra artifacts that the task creates for the user or for task-local scratch material.
 
 Examples:
 
 - Fixing a bug in `src/`: edit `src/` directly. Do not create `task-outputs/` unless also producing a report, screenshot, patch bundle, or other new artifact.
 - Creating a standalone analysis report: create `task-outputs/<per-task-folder>/` and save the report there.
 - Generating an image, slide deck, spreadsheet, or PDF: create `task-outputs/<per-task-folder>/` and save all generated files there.
-- Creating or updating a Codex skill: stage the skill folder, validation notes, and scratch copies in `task-outputs/<per-task-folder>/`; only copy the final validated skill into the requested install location.
+- Creating or updating an agent skill: stage the skill folder, validation notes, and scratch copies in `task-outputs/<per-task-folder>/`; only copy the final validated skill into the requested install or publish location.
 
 ## Cleanup
 
