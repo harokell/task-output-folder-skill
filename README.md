@@ -1,32 +1,36 @@
 # Task Output Folder Skill
 
-A Codex skill that creates a per-task output folder under `task-outputs/` whenever Codex generates files, scratch artifacts, temporary staging copies, exports, previews, or deliverables and the user has not provided an explicit destination.
+Task Output Folder is a reusable workflow for AI agents and maintainers who need a predictable place for generated deliverables, scratch files, staging copies, exports, previews, and other task-local artifacts.
 
-The GitHub repository is named `task-output-folder-skill` for clarity. The skill itself is named `task-output-folder`.
+## What It Solves
 
-## Install
+Agents often create ad hoc folders such as `work/`, `scratch/`, `tmp/`, or `output/` while working. That makes later cleanup and review harder. This skill standardizes those files under a timestamped folder inside `task-outputs/`, while leaving existing project source files in their natural locations.
 
-Clone this repository directly into your Codex skills directory using the skill name as the local folder:
-
-```bash
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-git clone https://github.com/harokell/task-output-folder-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/task-output-folder"
-```
-
-Then restart or refresh Codex so the skill can be discovered.
-
-You can invoke it explicitly with:
-
-```text
-Use $task-output-folder whenever this task creates files, scratch artifacts, or staging copies without an explicit destination.
-```
-
-No build step or external dependency is required.
-
-## Contents
+## Package Contents
 
 ```text
 task-output-folder-skill/
+  README.md
   SKILL.md
-  agents/openai.yaml
 ```
+
+There are no required scripts, assets, or external dependencies.
+
+## How To Use
+
+Give `SKILL.md` to an AI agent or maintainer before a task that may create generated files without an explicit destination.
+
+Use the workflow when a task creates:
+
+- generated reports, decks, PDFs, spreadsheets, images, archives, or exports,
+- temporary staging copies for skills, plugins, templates, documents, or repositories,
+- scratch scripts, temporary datasets, extracted assets, rendered previews, or validation artifacts.
+
+Do not use it for pure chat, analysis-only answers, or ordinary in-place edits to an existing codebase unless the task also creates new artifacts.
+
+## Safety Notes
+
+- If the user gives an explicit output path, use that path instead.
+- Do not move existing project source files into `task-outputs/`.
+- Do not store dependency folders, caches, virtual environments, or build outputs there unless the user explicitly requested them as deliverables.
+- Do not leave unrelated ad hoc staging folders behind after the task is complete.
